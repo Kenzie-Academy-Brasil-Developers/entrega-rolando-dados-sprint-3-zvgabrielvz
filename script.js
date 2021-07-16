@@ -61,7 +61,7 @@ function rolarDados() {
         resultados.innerText = ct + " : " + arrayResultados[b];
         resultados.style.border = "2px solid darkcyan"; 
         resultados.style.borderRadius = '10px'
-        resultados.style.width = "200px";
+        resultados.style.maxWidth = "500px";
         resultados.style.marginTop = '15px'
         content.appendChild(resultados);
     }

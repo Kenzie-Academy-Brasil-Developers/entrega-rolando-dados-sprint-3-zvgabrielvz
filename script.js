@@ -1,5 +1,17 @@
 
-arraysValores = [];
+const button_rolardados = document.getElementById('rolling-dados');
+button_rolardados.addEventListener('click', function(){
+    breset();
+    lancarDados ();
+    conjuntResults();
+    somaDados();
+    counter();
+    rolarDados();
+    
+
+
+})
+
 
 function lancarDados (){
     arrayDados = [];
@@ -7,14 +19,16 @@ function lancarDados (){
     arrayDados.push(Math.floor(1+ 6*Math.random()));
     }
     return arrayDados;
+    
 }
 
-console.log(lancarDados()+ " ");
-console.log(lancarDados()+ " ");
-console.log(lancarDados()+ " ");
+
+
+
 
 
 function conjuntResults() {
+    arraysValores = [];
     for(let j = 0; j<1000; j++){
         lancarDados();
         arraysValores.push(arrayDados);
@@ -23,32 +37,33 @@ function conjuntResults() {
 
 }
 
-console.log(conjuntResults());
+
 
 function somaDados(){
     arrayResult = []
+    
     for(k = 0; k < arraysValores.length; k++){
         s = arraysValores[k][0] + arraysValores [k][1];
         arrayResult.push(s);
     }
+    console.log(arrayResult)
     return arrayResult;
 
 }
-console.log(somaDados());
 
 
 /* resultados = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; */
-let arrayResultados = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
 
 function counter(){
+    arrayResultados = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     for(let i = 0; i < arrayResult.length; i++ ){
         let valor = arrayResult[i];
         arrayResultados[valor-2] = arrayResultados[valor-2] + 1;
     }
+    console.log(arrayResultados)
     return arrayResultados;
 }
-console.log(counter());
-
 
 
 function rolarDados() {
@@ -60,28 +75,47 @@ function rolarDados() {
         ct = ct + 1;
         resultados.innerText = ct + " : " + arrayResultados[b];
         resultados.style.border = "2px solid darkcyan"; 
-        resultados.style.borderRadius = '10px'
-        resultados.style.maxWidth = "500px";
+        resultados.style.borderRadius = '10px';
+        resultados.style.height = `${arrayResultados[b]*2}px`
+        resultados.style.maxWidth = "100px";
         resultados.style.marginTop = '15px'
+        resultados.style.marginRight = '10px'
         content.appendChild(resultados);
     }
+    let ct2 = 1
+    for(c = 0; c < arrayResultados.length; c++){
+        const content = document.getElementById('results1');
+        const resultados = document.createElement('div');
+        resultados.classList.add('results1-content');
+        ct2 = ct2 + 1;
+        resultados.innerText = ct2 + " : " + arrayResultados[c];
+        resultados.style.border = "2px solid darkcyan"; 
+        resultados.style.borderRadius = '10px';
+        resultados.style.maxWidth = "300px";
+        resultados.style.marginTop = '15px'
+        resultados.style.marginRight = '15px'
+        content.appendChild(resultados);
+    }
+   
 
 }   
 
-
-
-const button_rolardados = document.getElementById('rolling-dados');
-button_rolardados.addEventListener('click', function(){
-    rolarDados();
-
-})
-
 const reset = document.getElementById('reset');
 reset.addEventListener('click', function(){
-    rst = document.getElementById('results');
-    rst.innerText = "";
-    
+    breset();
+  
 })
+
+
+
+function breset() {
+    rst = document.getElementById('results');
+    rst.innerHTML = "";
+    rst1 = document.getElementById('results1');
+    rst1.innerHTML = "";
+}
+
+
 
 
 

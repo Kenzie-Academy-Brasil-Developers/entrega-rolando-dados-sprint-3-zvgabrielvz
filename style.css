@@ -1,3 +1,7 @@
+html, h1, button{
+    font-family: 'Permanent Marker', cursive;
+}
+
 body{
     background-color: aquamarine;
 }
@@ -10,18 +14,39 @@ h1{
 
 #results {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;    
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: 10px;
+    margin-right: 10px;
+   
+    
 }
 
 .results-content {
-    font-size: 30px;
+    font-size: 7px;
     text-align: center;
-    width: 300px;
     background-color: darkcyan;
     color: white;
+    width: 40px;
+    
 }
+
+#results1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;   
+}
+
+.results1-content {
+    font-size: 15px;
+    text-align: center;
+    width: 150px;
+    background-color: darkcyan;
+    color: white;
+     
+}
+
 
 .botoes{
     display: flex;
@@ -30,7 +55,7 @@ h1{
 
 
 #rolling-dados {
-    font-size: 20px;
+    font-size: 15px;
     background-color: teal;
     color: white;
     width: 100px;
@@ -42,11 +67,12 @@ h1{
 #rolling-dados:hover{
     color: teal;
     background-color: white;
+    
   
 }
 
 #reset {
-    font-size: 20px;
+    font-size: 15px;
     background-color: teal;
     color: white;
     width: 100px;
@@ -63,11 +89,38 @@ h1{
 
 @media (min-width: 768px ) {
     h1{
-        font-size: 40px;
+        font-size: 60px;
+    }
+    #results {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        
+        width: 100%; 
+       
     }
     
+    #results1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 50px;    
+    }
+
+    .results1-content {
+        font-size: 30px;
+        text-align: center;
+        width: 300px;
+        background-color: darkcyan;
+        color: white;  
+    }
+    
+    
     .results-content {
-        width: 380px;       
+        font-size: 20px;
+        width: 380px;  
+             
     }
 
     #rolling-dados {
@@ -77,5 +130,26 @@ h1{
     #reset {
         width: 200px;
         height: 65px;  
+    }
+
+    #rolling-dados {
+        font-size: 35px;
+        background-color: teal;
+        color: white;
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    #reset {
+        font-size: 35px;
+        background-color: teal;
+        color: white;
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        border-radius: 10px;
+        margin-left: 10px;
     }
 }
